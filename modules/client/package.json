@@ -1,0 +1,29 @@
+{
+  "name": "@inscription/client",
+  "type": "module",
+  "scripts": {
+    "serve": "node scripts/serve.js",
+    "start": "pnpm run serve"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "typescript": "^5.3.3",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-prettier": "^5.1.1",
+    "eslint-config-prettier": "^9.1.0",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "esbuild": "^0.19.10",
+    "esbuild-clean-plugin": "^1.0.0",
+    "env-var": "^7.4.1",
+    "dotenv": "^16.3.1"
+  }
+}
