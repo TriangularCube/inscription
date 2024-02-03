@@ -1,6 +1,8 @@
 import esbuild from 'esbuild'
 import * as http from 'http'
 import env from 'env-var'
+import { cleanPlugin } from 'esbuild-clean-plugin'
+import { htmlPlugin } from '@craftamap/esbuild-plugin-html'
 import { config } from 'dotenv'
 
 config()
@@ -14,9 +16,28 @@ const serve = async (servedir, listen) => {
   // Start esbuild's local web server. Random port will be chosen by esbuild.
   const ctx = await esbuild.context({
     entryPoints: ['src/App.tsx'],
-    outdir: 'static',
+    outdir: servedir,
+    assetNames: 'asset/[name]',
     bundle: true,
+    metafile: true,
     format: 'esm',
+    loader: {
+      '.woff2': 'copy',
+      '.woff': 'copy',
+    },
+    plugins: [
+      cleanPlugin(),
+      htmlPlugin({
+        files: [
+          {
+            entryPoints: ['src/App.tsx'],
+            filename: 'index.html',
+            htmlTemplate: 'static/index.html',
+            // findRelatedCssFiles: true,
+          },
+        ],
+      }),
+    ],
     define: {
       'ENV.TARGET': target,
       'ENV.LOCAL_PORT': localPort,
@@ -64,7 +85,6 @@ const serve = async (servedir, listen) => {
   console.log('Ready')
 }
 
-// Serves all content from ./static on :1234.
 // If esbuild 404s the request, the request is attempted again
 // from `/` assuming that it's an SPA route needing to be handled by the root bundle.
-serve('static', 1234)
+serve('tmp', 1234)

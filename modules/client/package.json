@@ -1,14 +1,21 @@
 {
   "name": "@inscription/client",
-  "type": "module",
   "scripts": {
     "serve": "node scripts/serve.js",
-    "start": "pnpm run serve"
+    "start": "pnpm run serve",
+    "build": "node scripts/build.js",
+    "build:env": "dotenv -e .env.prod -- pnpm run build",
+    "dev": "webpack serve --config webpack.dev.js",
+    "build:pack": "webpack --config webpack.prod.js"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.1"
+    "react-router-dom": "^6.20.1",
+    "@mui/joy": "^5.0.0-beta.24",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/inter": "^5.0.16"
   },
   "devDependencies": {
     "@types/react": "^18.2.45",
@@ -21,9 +28,19 @@
     "eslint-config-prettier": "^9.1.0",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
-    "esbuild": "^0.19.10",
-    "esbuild-clean-plugin": "^1.0.0",
     "env-var": "^7.4.1",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "dotenv-cli": "^7.3.0",
+    "webpack": "^5.90.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "esbuild-loader": "^4.0.3",
+    "copy-webpack-plugin": "^12.0.2",
+    "webpack-merge": "^5.10.0",
+    "html-webpack-plugin": "^5.6.0",
+    "dotenv-webpack": "^8.0.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "css-loader": "^6.10.0",
+    "style-loader": "^3.3.4"
   }
 }
