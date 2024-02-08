@@ -1,12 +1,10 @@
 {
   "name": "@inscription/client",
   "scripts": {
-    "serve": "node scripts/serve.js",
-    "start": "pnpm run serve",
-    "build": "node scripts/build.js",
-    "build:env": "dotenv -e .env.prod -- pnpm run build",
     "dev": "webpack serve --config webpack.dev.js",
-    "build:pack": "webpack --config webpack.prod.js"
+    "start": "pnpm run dev",
+    "build": "webpack --config webpack.prod.js",
+    "build:env": "dotenv -e .env.prod -- pnpm run build"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -34,7 +32,6 @@
     "webpack": "^5.90.1",
     "clean-webpack-plugin": "^4.0.0",
     "esbuild-loader": "^4.0.3",
-    "copy-webpack-plugin": "^12.0.2",
     "webpack-merge": "^5.10.0",
     "html-webpack-plugin": "^5.6.0",
     "dotenv-webpack": "^8.0.1",
