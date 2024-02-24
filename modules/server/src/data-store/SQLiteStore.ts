@@ -2,6 +2,9 @@ import sqlite, { Database } from 'better-sqlite3'
 import fs from 'node:fs'
 import path from 'node:path'
 import { InscriptionStorageState, Store } from '../utils/types/Storage'
+import ShortUniqueId from 'short-unique-id'
+
+const generateID = new ShortUniqueId()
 
 export class SQLiteStore implements Store {
   private instance: Database
@@ -34,7 +37,7 @@ export class SQLiteStore implements Store {
     let completed = false
 
     do {
-
+      id = generateID.stamp(10)
     } while (!completed)
 
     return ''
