@@ -1,3 +1,4 @@
+const { DefinePlugin } = require('webpack')
 const { mergeWithRules, CustomizeRule } = require('webpack-merge')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
@@ -30,6 +31,9 @@ const merged = mergeWithRules({
     ],
   },
   plugins: [
+    new DefinePlugin({
+      'process.env.API_URL': JSON.stringify(process.env.API_URL),
+    }),
     new HtmlWebPackPlugin({
       filename: 'index.html',
       template: './templates/index.html',

@@ -5,7 +5,13 @@
     "jsx": "react",
     "moduleResolution": "Bundler",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"],
+      "Utils/*": ["src/utils/*"]
+    }
   },
   "include": ["src/**/*"]
 }

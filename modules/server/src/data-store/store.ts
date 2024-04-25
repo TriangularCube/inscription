@@ -1,4 +1,4 @@
-import { Store } from '../utils/types/Storage'
+import { Store } from './storageTypes'
 import { SQLiteStore } from './SQLiteStore'
 import { sqliteStoreDirectory, storeType } from '../env'
 
