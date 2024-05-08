@@ -1,0 +1,11 @@
+{
+  "name": "inscription",
+  "packageManager": "yarn@4.2.1",
+  "private": true,
+  "workspaces": [
+    "modules/*"
+  ],
+  "scripts": {
+    "client": "yarn workspace @inscription/client"
+  }
+}
