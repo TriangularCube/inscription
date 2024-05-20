@@ -1,0 +1,10 @@
+{
+  "name": "@inscription/shared",
+  "type": "module",
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}
