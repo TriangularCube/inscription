@@ -2,13 +2,12 @@
   "compilerOptions": {
     "target": "ES2020",
     "allowJs": true,
+
     "moduleResolution": "Node16",
-    "composite": true
+    "module": "Node16",
+
+    "composite": true,
+    "outDir": "./dist"
   },
-  "include": ["src"],
-  "references": [
-    {
-      "path": "../shared"
-    }
-  ]
+  "include": ["src"]
 }

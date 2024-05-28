@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "Node16",
+    "target": "ES2022",
+
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+
+    "strictNullChecks": true
+  },
+  "include": ["./src"],
+  "exclude": ["node_modules"],
+  "references": [
+    {
+      "path": "../shared"
+    }
+  ]
+}

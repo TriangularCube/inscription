@@ -6,6 +6,8 @@
     "modules/*"
   ],
   "scripts": {
-    "client": "yarn workspace @inscription/client"
+    "client": "yarn workspace @inscription/client",
+    "server": "yarn workspace @inscription/server",
+    "clean": "yarn workspace @inscription/server clean"
   }
 }

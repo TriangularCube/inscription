@@ -1,10 +1,14 @@
 {
   "name": "@inscription/shared",
   "type": "module",
+  "scripts": {
+    "clean": "rimraf ./dist"
+  },
   "dependencies": {
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.7"
   }
 }
