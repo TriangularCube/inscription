@@ -1,3 +1,5 @@
+**/node_modules
+
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -17,3 +19,9 @@
 
 # Env
 **/*.env*
+
+**/.turbo
+
+**/dist
+
+**/.env*
