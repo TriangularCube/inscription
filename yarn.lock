@@ -792,6 +792,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@inscription/server@workspace:modules/server"
   dependencies:
+    "@eslint/js": "npm:^9.4.0"
     "@inscription/shared": "workspace:*"
     "@types/better-sqlite3": "npm:^7.6.10"
     "@types/cors": "npm:^2.8.17"
@@ -802,6 +803,7 @@ __metadata:
     cors: "npm:^2.8.5"
     dotenv-cli: "npm:^7.4.2"
     env-var: "npm:^7.5.0"
+    eslint-config-prettier: "npm:^9.1.0"
     express: "npm:^4.19.2"
     luxon: "npm:^3.4.4"
     prettier: "npm:^3.3.2"
@@ -810,6 +812,7 @@ __metadata:
     tsc-alias: "npm:^1.8.10"
     tsc-watch: "npm:^6.2.0"
     typescript: "npm:^5.4.5"
+    typescript-eslint: "npm:^7.13.0"
   languageName: unknown
   linkType: soft
 
@@ -817,8 +820,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@inscription/shared@workspace:modules/shared"
   dependencies:
+    "@eslint/js": "npm:^9.4.0"
+    eslint-config-prettier: "npm:^9.1.0"
     prettier: "npm:^3.3.2"
     rimraf: "npm:^5.0.7"
+    typescript: "npm:^5.4.5"
+    typescript-eslint: "npm:^7.13.0"
     zod: "npm:^3.23.8"
   languageName: unknown
   linkType: soft

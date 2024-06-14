@@ -1,4 +1,4 @@
-**/node_modules
+node_modules
 
 .yarn/*
 !.yarn/patches
@@ -17,11 +17,4 @@
 # JetBrains IDE
 .idea
 
-# Env
-**/*.env*
-
-**/.turbo
-
-**/dist
-
-**/.env*
+.turbo

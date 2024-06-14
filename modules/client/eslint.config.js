@@ -15,10 +15,7 @@ delete reactRecommended.parserOptions
 
 export default tseslint.config(
   {
-    ignores: ['vite.config.*'],
-  },
-  {
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ['src/**/*.ts', 'src/**/*.tsx'],
     extends: [
       eslint.configs.recommended,
       ...tseslint.configs.strictTypeChecked,
