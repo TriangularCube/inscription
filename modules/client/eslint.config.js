@@ -8,10 +8,15 @@ import globals from 'globals'
 
 import { cloneDeep } from 'lodash-es'
 
-// Remove this key since the plugin apparently forgot, else
+// Remove these keys since the plugin apparently forgot, else
 //   eslint complains
-let reactRecommended = cloneDeep(react.configs.recommended)
+const reactRecommended = cloneDeep(react.configs.recommended)
 delete reactRecommended.parserOptions
+delete reactRecommended.plugins
+
+const reactJSX = cloneDeep(react.configs['jsx-runtime'])
+delete reactJSX.parserOptions
+delete reactJSX.plugins
 
 export default tseslint.config(
   {
@@ -27,20 +32,28 @@ export default tseslint.config(
         project: true,
       },
     },
+    rules: {
+      '@typescript-eslint/restrict-template-expressions': [
+        'error',
+        {
+          allowNumber: true,
+        },
+      ],
+    },
   },
   {
-    files: ['**/*.ts', '**/*.tsx'],
-    ...reactRecommended,
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
-    },
+    files: ['src/**/*.ts', 'src/**/*.tsx'],
+    extends: [reactRecommended, reactJSX],
     plugins: {
       react,
     },
-    rules: {
-      'react/react-in-jsx-scope': 'off',
+    languageOptions: {
+      parserOptions: {
+        ...react.configs.recommended.parserOptions,
+      },
+      globals: {
+        ...globals.browser,
+      },
     },
   }
 )
