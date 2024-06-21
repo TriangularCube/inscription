@@ -8,4 +8,5 @@ export default defineConfig({
     port: 1234,
     strictPort: true,
   },
+  envPrefix: 'INSCRIPTION_APP',
 })

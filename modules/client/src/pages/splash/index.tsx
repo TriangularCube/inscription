@@ -15,6 +15,8 @@ export function Splash(): ReactElement {
       >
         Create Game
       </Button>
+
+      {[<div />, <div />, <div />]}
     </div>
   )
 }
