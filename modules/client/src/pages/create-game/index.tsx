@@ -10,6 +10,7 @@ import {
   RadioGroup,
   TextField,
 } from '@mui/material'
+import { PostRequest } from '~/utils/api'
 
 export function CreateGame(): ReactElement {
   // const navigate = useNavigate()
@@ -33,6 +34,14 @@ export function CreateGame(): ReactElement {
     }
   }
 
+  const handleGameCreate = async () => {
+    const result = await PostRequest('/create-game', {
+      body: JSON.stringify(players),
+    })
+
+    console.log(result)
+  }
+
   return (
     <>
       <Box>
@@ -49,12 +58,18 @@ export function CreateGame(): ReactElement {
             onChange={handlePlayerNumChange}
           >
             {[1, 2, 3, 4].map(item => (
-              <FormControlLabel value={item} control={<Radio />} label={item} />
+              <FormControlLabel
+                key={`player-count-${item}`}
+                value={item}
+                control={<Radio />}
+                label={item}
+              />
             ))}
           </RadioGroup>
 
           {players.map((element, index) => (
             <TextField
+              key={`player-${index + 1}-name`}
               required
               value={element}
               id={`player-${index + 1}-name`}
@@ -71,7 +86,7 @@ export function CreateGame(): ReactElement {
           ))}
         </FormControl>
       </Box>
-      <Button>Create Game</Button>
+      <Button onClick={handleGameCreate}>Create Game</Button>
     </>
   )
 }

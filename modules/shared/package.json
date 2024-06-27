@@ -1,18 +1,20 @@
 {
   "name": "@inscription/shared",
   "type": "module",
+  "main": "src/index.ts",
   "scripts": {
-    "clean": "rimraf ./dist"
+    "clean": "rimraf ./dist",
+    "packages:sort": "pnpm dlx npm-sort"
   },
   "dependencies": {
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@eslint/js": "^9.4.0",
+    "@eslint/js": "^9.5.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.3.2",
     "rimraf": "^5.0.7",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^7.13.0"
+    "typescript": "^5.5.2",
+    "typescript-eslint": "^7.14.1"
   }
 }

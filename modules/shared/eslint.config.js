@@ -11,4 +11,9 @@ export default tseslint.config({
     ...tseslint.configs.stylisticTypeChecked,
     eslintConfigPrettier,
   ],
+  languageOptions: {
+    parserOptions: {
+      project: true,
+    },
+  },
 })

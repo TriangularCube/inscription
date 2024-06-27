@@ -1,14 +1,12 @@
 {
   "name": "inscription",
-  "packageManager": "yarn@4.2.1",
+  "packageManager": "pnpm@9.4.0",
   "private": true,
-  "workspaces": [
-    "modules/*"
-  ],
   "scripts": {
-    "dev": "turbo dev"
+    "dev": "turbo dev",
+    "sort": "turbo packages:sort"
   },
   "devDependencies": {
-    "turbo": "^2.0.3"
+    "turbo": "^2.0.5"
   }
 }

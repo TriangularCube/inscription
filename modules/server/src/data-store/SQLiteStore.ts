@@ -5,7 +5,7 @@ import {
   InscriptionGameCreateData,
   InscriptionGameStorageData,
   Store,
-} from './storageTypes'
+} from './storageTypes.js'
 import ShortUniqueId from 'short-unique-id'
 import { DateTime } from 'luxon'
 
@@ -39,19 +39,15 @@ export class SQLiteStore implements Store {
               VALUES (?, ?, json(?))`
     )
 
-    while (true) {
-      try {
-        const id = generateID.stamp(10)
+    try {
+      const id = generateID.stamp(10)
 
-        stmt.run(id, DateTime.now().toSeconds(), JSON.stringify(content))
+      stmt.run(id, DateTime.now().toSeconds(), JSON.stringify(content))
 
-        return id
-      } catch (error) {
-        // Ignore if it's duplicate key
-        if (error.code !== 'SQLITE_CONSTRAINT_PRIMARYKEY') {
-          throw new Error('SQL Error', { cause: error })
-        }
-      }
+      return id
+    } catch (error) {
+      console.error(error)
+      throw error
     }
   }
 
@@ -74,7 +70,7 @@ export class SQLiteStore implements Store {
 
     return {
       id: id,
-      content: JSON.parse(result.content as string),
+      content: result.content,
     }
   }
 }

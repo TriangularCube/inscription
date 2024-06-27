@@ -4,7 +4,7 @@ export interface InscriptionGameCreateData {
 
 export interface InscriptionGameStorageData {
   id: string
-  content: {}
+  content: Record<string, any>
 }
 
 export interface Store {

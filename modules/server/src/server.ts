@@ -1,8 +1,8 @@
 import { createServer } from 'node:http'
 import * as process from 'node:process'
 
-import { port } from './env'
-import { makeApp } from './app'
+import { port } from './env.js'
+import { makeApp } from './app.js'
 
 const main = async () => {
   const app = makeApp()
