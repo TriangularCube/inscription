@@ -1,10 +1,10 @@
 {
   "name": "@inscription/server",
   "type": "module",
-  "main": "src/server.ts",
   "scripts": {
     "clean": "rimraf ./dist",
-    "dev": "tsc -b --watch",
+    "dev": "tsc-watch -b --onSuccess \"pnpm serve\"",
+    "serve": "tsc-alias && dotenv -e .env.development -- node dist/server.js",
     "packages:sort": "pnpm dlx npm-sort"
   },
   "dependencies": {

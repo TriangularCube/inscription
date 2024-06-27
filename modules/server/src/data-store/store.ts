@@ -1,6 +1,6 @@
-import type { Store } from './storageTypes'
-import { SQLiteStore } from './SQLiteStore'
-import { sqliteStoreDirectory, storeType } from '../env'
+import type { Store } from './storageTypes.js'
+import { SQLiteStore } from './SQLiteStore.js'
+import { sqliteStoreDirectory, storeType } from '../env.js'
 
 export const initializeStore = (): Store => {
   switch (storeType) {

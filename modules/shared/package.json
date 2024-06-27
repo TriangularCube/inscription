@@ -1,7 +1,16 @@
 {
   "name": "@inscription/shared",
   "type": "module",
-  "main": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "default": "./dist/src/index.js"
+    },
+    "./types": {
+      "types": "./dist/src/types/index.d.ts",
+      "default": "./dist/src/types/index.js"
+    }
+  },
   "scripts": {
     "clean": "rimraf ./dist",
     "packages:sort": "pnpm dlx npm-sort"

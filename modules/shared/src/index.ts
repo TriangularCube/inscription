@@ -1,1 +1,1 @@
-export * from './types/create-game-types.js'
+export * from './types/index.js'
