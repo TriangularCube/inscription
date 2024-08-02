@@ -1,0 +1,17 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "interactive": true,
+
+      "dependsOn": ["^clean", "clean"]
+    },
+    "clean": {},
+    "packages:sort": {
+      "cache": false
+    }
+  }
+}

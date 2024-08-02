@@ -1,0 +1,15 @@
+{
+  "name": "inscription",
+  "packageManager": "pnpm@9.6.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "sort": "turbo packages:sort",
+    "client": "pnpm --filter client",
+    "common": "pnpm --filter common",
+    "server": "pnpm --filter server"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.11"
+  },
+  "private": true
+}
