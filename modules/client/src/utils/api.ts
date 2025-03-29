@@ -28,7 +28,10 @@ const sendRequest = async <T>(
     })
 
     if (!result.ok) {
-      return (await result.json()) as ErrorResponse
+      return {
+        success: false,
+        ...(await result.json()),
+      } as ErrorResponse
     }
 
     return {

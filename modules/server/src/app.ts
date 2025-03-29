@@ -1,5 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import { createGame } from './routes/create-game/handler.js'
+import { gameDetails } from './routes/game-details/handler.js'
 
 export const makeApp = () => {
   const app = express()
@@ -11,7 +13,8 @@ export const makeApp = () => {
   app.use(corsMiddleware)
   app.use(express.json())
 
-  // const store =
+  app.post('/create-game', createGame)
+  app.get('/game-details/:id', gameDetails)
 
   return app
 }
