@@ -1,25 +1,27 @@
-import { makeApp } from './app'
 import { createServer } from 'node:http'
 import { Server } from 'socket.io'
+import { makeApp } from './app.js'
+import { port } from './env.js'
+import { SetupConnection } from './game/connect.js'
+import { HashBiMultiMap } from '@rimbu/bimultimap'
 
 const main = async () => {
   const app = makeApp()
 
-  app.get('/', (_, res) => {
-    res.send('Hello World!')
-  })
-
-  const httpServer = createServer()
-  httpServer.addListener('request', app)
+  const httpServer = createServer(app)
+  // httpServer.addListener('request', app)
 
   const io = new Server(httpServer, {
     serveClient: false,
     cors: {
-      origin: 'http://localhost:1234',
-    }
+      origin: 'http://localhost:1234', // TODO
+    },
   })
+  SetupConnection(io)
 
-  httpServer.listen()
+  httpServer.listen(port, () => {
+    console.log(`Listening on port ${port}`)
+  })
 }
 
 main().catch(e => {
