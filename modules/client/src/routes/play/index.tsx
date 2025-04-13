@@ -21,7 +21,7 @@ export function Play(): ReactElement {
     }
   }, [])
 
-  if (!session?.loaded) {
+  if (session?.gameState == null) {
     return <CircularProgress />
   }
 

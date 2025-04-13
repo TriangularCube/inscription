@@ -4,7 +4,6 @@ import { ClientGameState } from '~/routes/play/engine/ClientGameState.ts'
 import { SocketMessageType } from '@inscription/server'
 
 export class ClientSession {
-  loaded = false
   gameState = proxy<ClientGameState>()
 
   private socket: Socket
