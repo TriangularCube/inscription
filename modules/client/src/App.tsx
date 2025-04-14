@@ -6,6 +6,7 @@ import { Routes } from './Routes.tsx'
 export function App(): ReactElement {
   return (
     <>
+      <CssBaseline />
       <Routes />
     </>
   )
@@ -18,9 +19,4 @@ if (container == null) {
 }
 
 const root = createRoot(container)
-root.render(
-  <>
-    <CssBaseline />
-    <App />
-  </>
-)
+root.render(<App />)

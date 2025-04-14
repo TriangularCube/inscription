@@ -2,12 +2,13 @@ import express from 'express'
 import cors from 'cors'
 import { createGame } from './routes/create-game/handler.js'
 import { gameDetails } from './routes/game-details/handler.js'
+import { corsArray } from './cors.js'
 
 export const makeApp = () => {
   const app = express()
 
   const corsMiddleware = cors({
-    origin: '*', // TODO
+    origin: corsArray, // TODO
   })
 
   app.use(corsMiddleware)

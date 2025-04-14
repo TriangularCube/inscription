@@ -12,3 +12,5 @@ export const sqliteStoreDirectory = env
   .get('INSCRIPTION_SERVER_SQLITE_STORE_DIRECTORY')
   .required(storeType === 'sqlite')
   .asString()
+
+export const corsList = env.get('INSCRIPTION_SERVER_CORS_LIST').asArray()

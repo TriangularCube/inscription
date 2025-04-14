@@ -3,7 +3,7 @@ import { Server } from 'socket.io'
 import { makeApp } from './app.js'
 import { port } from './env.js'
 import { SetupConnection } from './game/connect.js'
-import { HashBiMultiMap } from '@rimbu/bimultimap'
+import { corsArray } from './cors.js'
 
 const main = async () => {
   const app = makeApp()
@@ -14,7 +14,7 @@ const main = async () => {
   const io = new Server(httpServer, {
     serveClient: false,
     cors: {
-      origin: 'http://localhost:1234', // TODO
+      origin: corsArray,
     },
   })
   SetupConnection(io)

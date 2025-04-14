@@ -19,8 +19,7 @@
     "lodash-es": "^4.17.21",
     "socket.io": "^4.8.1",
     "env-var": "^7.5.0",
-    "arktype": "^2.1.2",
-    "@rimbu/bimultimap": "^2.1.1"
+    "arktype": "^2.1.2"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",
