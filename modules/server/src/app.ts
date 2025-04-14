@@ -8,7 +8,7 @@ export const makeApp = () => {
   const app = express()
 
   const corsMiddleware = cors({
-    origin: corsArray, // TODO
+    origin: corsArray,
   })
 
   app.use(corsMiddleware)

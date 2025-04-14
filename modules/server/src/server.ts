@@ -9,7 +9,6 @@ const main = async () => {
   const app = makeApp()
 
   const httpServer = createServer(app)
-  // httpServer.addListener('request', app)
 
   const io = new Server(httpServer, {
     serveClient: false,

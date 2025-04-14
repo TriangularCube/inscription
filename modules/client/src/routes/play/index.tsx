@@ -10,8 +10,11 @@ export function Play(): ReactElement {
   const { gameId, seat } = useParams<{ gameId: string; seat: string }>()
   const [session, setSession] = useState<ClientSession>()
 
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string>()
+
   useEffect(() => {
-    const newSession = new ClientSession(gameId, seat)
+    const newSession = new ClientSession(gameId, seat, setLoading, setError)
     setSession(newSession)
 
     return () => {
@@ -21,7 +24,11 @@ export function Play(): ReactElement {
     }
   }, [])
 
-  if (session?.gameState == null) {
+  if (error != null) {
+    return <div>Error</div>
+  }
+
+  if (session == null || loading) {
     return <CircularProgress />
   }
 

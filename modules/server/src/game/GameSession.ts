@@ -21,7 +21,15 @@ export class GameSession {
       this.players.removeConnection(socket)
     })
 
-    // TODO: Push current state to socket
-    socket.emit(SocketMessageType.InitialState, this.gameState)
+    socket.emit(
+      SocketMessageType.InitialState,
+      this.sanitizeDataForPlayer(seatId)
+    )
+  }
+
+  private sanitizeDataForPlayer(id: string) {
+    // TODO: Sanitize state for player
+
+    return this.gameState
   }
 }
