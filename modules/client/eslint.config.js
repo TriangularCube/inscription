@@ -1,35 +1,21 @@
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
-
-import eslintConfigPrettier from 'eslint-config-prettier'
-
-import react from 'eslint-plugin-react'
+import reactPlugin from 'eslint-plugin-react'
 import globals from 'globals'
-
-import { cloneDeep } from 'lodash-es'
-
-// Remove these keys since the plugin apparently forgot, else
-//   eslint complains
-const reactRecommended = cloneDeep(react.configs.recommended)
-delete reactRecommended.parserOptions
-delete reactRecommended.plugins
-
-const reactJSX = cloneDeep(react.configs['jsx-runtime'])
-delete reactJSX.parserOptions
-delete reactJSX.plugins
+import eslintConfigPrettierFlat from 'eslint-config-prettier/flat'
 
 export default tseslint.config(
+  eslint.configs.recommended,
   {
     files: ['src/**/*.ts', 'src/**/*.tsx'],
     extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.strictTypeChecked,
-      ...tseslint.configs.stylisticTypeChecked,
-      eslintConfigPrettier,
+      tseslint.configs.strictTypeChecked,
+      tseslint.configs.stylisticTypeChecked,
     ],
     languageOptions: {
       parserOptions: {
         project: true,
+        projectService: true,
       },
     },
     rules: {
@@ -51,17 +37,16 @@ export default tseslint.config(
   },
   {
     files: ['src/**/*.ts', 'src/**/*.tsx'],
-    extends: [reactRecommended, reactJSX],
+    extends: [
+      reactPlugin.configs.flat.recommended,
+      reactPlugin.configs.flat['jsx-runtime'],
+    ],
     plugins: {
-      react,
+      react: reactPlugin,
     },
     languageOptions: {
-      parserOptions: {
-        ...react.configs.recommended.parserOptions,
-      },
-      globals: {
-        ...globals.browser,
-      },
+      globals: globals.browser,
     },
-  }
+  },
+  eslintConfigPrettierFlat
 )
