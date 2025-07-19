@@ -18,8 +18,9 @@ export const createNewGameState = (players: string[]): GameDetails => {
     seats: seatingData,
     eventCardDeck: createEventDeck(),
     boardState: {
-      currentStep,
-      playerStatus: {}
+      currentControlStep: currentStep,
+      playerStatus: {},
+      MecatolRex: [],
     },
   }
 }

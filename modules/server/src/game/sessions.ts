@@ -1,7 +1,7 @@
-import { GameSession } from './GameSession.js'
+import { ServerSession } from './ServerSession.js'
 import { store } from '../store/index.js'
 
-const sessions: Map<string, GameSession> = new Map()
+const sessions: Map<string, ServerSession> = new Map()
 
 export const getGameSession = (gameId: string) => {
   if (sessions.has(gameId)) {
@@ -9,7 +9,7 @@ export const getGameSession = (gameId: string) => {
   }
 
   const data = store.getGame(gameId)
-  const newSession = new GameSession(data)
+  const newSession = new ServerSession(data)
 
   sessions.set(gameId, newSession)
 

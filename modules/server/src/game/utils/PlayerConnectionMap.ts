@@ -6,10 +6,9 @@ export class PlayerConnectionMap {
 
   constructor(initialMap: Record<string, Socket[]> = {}) {
     for (const [id, socks] of Object.entries(initialMap)) {
-      this.playerMap.set(id, new Set())
+      this.playerMap.set(id, new Set(socks))
 
       for (const singleSocket of socks) {
-        this.playerMap.get(id)!.add(singleSocket)
         this.socketMap.set(singleSocket, id)
       }
     }
@@ -38,8 +37,10 @@ export class PlayerConnectionMap {
 
     for (const [id, sockets] of this.playerMap) {
       if (sockets.size > 0) {
-
+        return false
       }
     }
+
+    return true
   }
 }

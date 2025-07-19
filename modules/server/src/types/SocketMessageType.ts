@@ -1,3 +1,4 @@
 export const SocketMessageType = {
-  InitialState: 'initialState'
+  InitialState: 'initialState',
+  RegisterAction: 'registerAction',
 }

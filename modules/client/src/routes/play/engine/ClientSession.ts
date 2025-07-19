@@ -38,6 +38,10 @@ export class ClientSession {
     })
   }
 
+  registerAction(action: { type: 'pickConfiguration' }) {
+    this.socket.emit(SocketMessageType.RegisterAction, action)
+  }
+
   cleanup() {
     this.socket.removeAllListeners()
     this.socket.disconnect()

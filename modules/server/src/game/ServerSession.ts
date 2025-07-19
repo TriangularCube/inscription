@@ -4,7 +4,7 @@ import { GameDetails } from '../types/GameStates.js'
 import { SocketMessageType } from '../types/SocketMessageType.js'
 import { PlayerConnectionMap } from './utils/PlayerConnectionMap.js'
 
-export class GameSession {
+export class ServerSession {
   players: PlayerConnectionMap = new PlayerConnectionMap()
   gameState: GameDetails
 
@@ -19,12 +19,21 @@ export class GameSession {
 
     socket.on('disconnect', () => {
       this.players.removeConnection(socket)
+
+      // TODO: deal with cleaning up the Session if
+      //    it's empty
     })
+
+    socket.on(SocketMessageType.RegisterAction, this.handlePlayerActionRegister)
 
     socket.emit(
       SocketMessageType.InitialState,
       this.sanitizeDataForPlayer(seatId)
     )
+  }
+
+  handlePlayerActionRegister(data: any) {
+    console.log('Player Action', data)
   }
 
   private sanitizeDataForPlayer(id: string) {
