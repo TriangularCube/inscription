@@ -2,8 +2,8 @@ import { createServer } from 'node:http'
 import { Server } from 'socket.io'
 import { makeApp } from './app.js'
 import { port } from './env.js'
-import { SetupConnection } from './game/connect.js'
 import { corsArray } from './cors.js'
+import { SetupConnection } from './game/sessionManagement/connect.js'
 
 const main = async () => {
   const app = makeApp()

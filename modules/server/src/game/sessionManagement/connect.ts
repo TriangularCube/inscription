@@ -1,6 +1,6 @@
 import { Server } from 'socket.io'
 import { getGameSession } from './sessions.js'
-import { ArkErrors, type } from 'arktype'
+import { type } from 'arktype'
 
 const connectQuery = type({
   gameId: 'string',

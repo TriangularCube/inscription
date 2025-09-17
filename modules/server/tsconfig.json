@@ -11,7 +11,7 @@
 
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "exactOptionalPropertyTypes": true
+    "exactOptionalPropertyTypes": true,
   },
   "include": ["src"],
   "exclude": ["node_modules"]

@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from 'react'
+import { ReactElement, useEffect, useMemo, useState } from 'react'
 import { useParams } from 'wouter'
 import { CircularProgress } from '@mui/material'
 import { ClientSession } from './engine/ClientSession.ts'
@@ -8,19 +8,20 @@ import { GameControlStep } from '@inscription/server'
 
 export function Play(): ReactElement {
   const { gameId, seat } = useParams<{ gameId: string; seat: string }>()
-  const [session, setSession] = useState<ClientSession>()
 
-  const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string>()
+  const [loading, setLoading] = useState(true)
+
+  const session = useMemo(
+    () => new ClientSession(gameId, seat, setLoading, setError),
+    []
+  )
 
   useEffect(() => {
-    const newSession = new ClientSession(gameId, seat, setLoading, setError)
-    setSession(newSession)
-
     return () => {
       console.log('Play Unmounted')
 
-      newSession.cleanup()
+      session.cleanup()
     }
   }, [])
 

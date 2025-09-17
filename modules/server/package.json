@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "clean": "rimraf ./dist",
-    "build": "\"pnpm run clean\" && tsc && tsc-alias",
+    "build": "pnpm run clean && tsc && tsc-alias",
     "dev": "tsc-watch --onSuccess \"pnpm dev:serve\"",
     "dev:serve": "tsc-alias && node --env-file .env.development dist/server.js",
     "package:sort": "pnpm dlx npm-sort"
@@ -35,6 +35,7 @@
     "tsc-alias": "^1.8.10",
     "tsc-watch": "^6.2.1",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.22.0"
+    "typescript-eslint": "^8.22.0",
+    "nodemon": "^3.1.10"
   }
 }

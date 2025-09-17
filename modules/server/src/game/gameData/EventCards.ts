@@ -1,7 +1,42 @@
-import { ResourceType } from '../../types/ResourceTypes.js'
-import { EventCard, EventType } from '../../types/EventCards.js'
+import { ResourceType } from './ResourceTypes.js'
 
-export const EventCardsSeed = {
+export enum EventType {
+  Strategy = 'Strategy',
+  Production = 'Production',
+  Council = 'Council',
+  War = 'War',
+  Special = 'Special',
+}
+
+export enum EventCard {
+  FledglingEmpire = 'FledglingEmpire',
+  FirstVentures = 'FirstVentures',
+  EchoesOfThePast = 'EchoesOfThePast',
+  ConveneTheCouncil = 'ConveneTheCouncil',
+  RedefineTradeRoutes = 'RedefineTradeRoutes',
+  BorderConflict = 'BorderConflict',
+  TowardsANewHome = 'TowardsANewHome',
+  AStrongFoundation = 'AStrongFoundation',
+  RelicsRediscovered = 'RelicsRediscovered',
+  MaximumYield = 'MaximumYield',
+  TechnologicalFrontier = 'TechnologicalFrontier',
+  BorderDefense = 'BorderDefense',
+  PartisanManeuvering = 'PartisanManeuvering',
+  WhenDiplomacyFails = 'WhenDiplomacyFails',
+  BustlingEconomies = 'BustlingEconomies',
+  RightfulClaim = 'RightfulClaim',
+  ForbiddenKnowledge = 'ForbiddenKnowledge',
+  DesperateMeasures = 'DesperateMeasures',
+  IndustrialZeal = 'IndustrialZeal',
+  TheLimitsOfDiplomacy = 'TheLimitsOfDiplomacy',
+  DivideAndConquer = 'DivideAndConquer',
+  GirdedForWar = 'GirdedForWar ',
+  MercilessAmbition = 'MercilessAmbition',
+  EmpireAscendant = 'EmpireAscendant',
+  AThroneForTheTaking = 'AThroneForTheTaking',
+}
+
+export const EventCardDeck = {
   Stage1: {
     Blue: [EventCard.FledglingEmpire, EventCard.FirstVentures],
     Black: [EventCard.EchoesOfThePast],

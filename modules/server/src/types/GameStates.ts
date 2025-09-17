@@ -1,10 +1,11 @@
 import { EventCard } from './EventCards.js'
 import { GameControlStep } from './GameControlStep.js'
+import { PlayerFaction } from './PlayerFactions.js'
 
 export interface GameDetails {
   seats: GameSeat[]
   eventCardDeck: EventCard[]
-  boardState: ConfigurationSettingBoardState | MatchBoardState
+  boardState: BoardState
 }
 
 export interface GameSeat {
@@ -12,12 +13,13 @@ export interface GameSeat {
   name: string
 }
 
-interface ConfigurationSettingBoardState {
-  currentStep: GameControlStep.ConfigurationSelect
-  playerStatus: Record<string, boolean>
+interface PlayerData {
+  ready: boolean
+  faction: PlayerFaction
 }
 
-interface MatchBoardState {
-  currentStep: GameControlStep.Match
+interface BoardState {
+  currentControlStep: GameControlStep
+  playerStatus: Record<string, PlayerData>
   MecatolRex: []
 }

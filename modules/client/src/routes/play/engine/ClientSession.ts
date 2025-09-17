@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 import { io, Socket } from 'socket.io-client'
 import { proxy } from 'valtio'
 import { ClientGameState } from '~/routes/play/engine/ClientGameState.ts'
-import { SocketMessageType } from '@inscription/server'
+import { MessageName } from '@inscription/server'
 import { apiURL } from '~/env.ts'
 
 export class ClientSession {
@@ -30,12 +30,16 @@ export class ClientSession {
       this.setError('Connect Error')
     })
 
-    this.socket.on(SocketMessageType.InitialState, initialState => {
+    this.socket.on(MessageName.InitialState, initialState => {
       // TODO: Sanitize Data
       this.gameState = proxy(initialState as ClientGameState)
 
       this.setLoading(false)
     })
+  }
+
+  registerAction(action: string) {
+    this.socket.emit(MessageName.RegisterPlayerAction, action)
   }
 
   cleanup() {
